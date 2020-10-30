@@ -52,6 +52,19 @@
         console.log((n == 3) && 3)
         console.log((!n) && "null")
         console.log(typeof("null" && null))
+        if(o = 0 && (p = {
+            q: "string"
+        }))
+        console.log(p.q)
+        var r = 1 + "1"
+        console.log(r)
+        var s = "11"
+        console.log(r===s)
+        var t = 6
+        var u = function(){
+            return t
+        }
+        console.log(t&&u())
     </script>
 </body>
 </html>
