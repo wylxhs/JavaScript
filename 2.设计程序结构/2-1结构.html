@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        switch(a = 2){
+            case 1 :
+                console.log(1);
+                break;
+            case 2 :
+                console.log(2);
+                break;
+            case 3 :
+                console.log(3);
+        }
+        switch(a = 1){
+            case 3-2 :
+                console.log(1);
+                break;
+            case 1+1 :
+                console.log(2);
+                break;
+            case b=3 :
+                console.log(3);
+        }
+        var a = [1, true, "abc", 34, false];
+        for(var b in a){
+            console.log(b);
+            console.log(a[b])
+        }
+        var o = {
+            x : 1,
+            y : true,
+            z : "true"
+        };
+        var c = [];
+        var d = 0;
+        for(c[d++] in o){
+            console.log(c)
+        }  
+        for(c[d++] in o){
+            console.log(c)
+        }
+        for(var i= 0 in c){
+            console.log(c[i])
+        }
+    </script>
+</body>
+</html>
