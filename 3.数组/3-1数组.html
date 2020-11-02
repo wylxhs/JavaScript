@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script typ  e="text/javascript">
+        var a = []
+        a.push(1)
+        console.log(a.length)
+        a.pop()
+        a.push(3,4)
+        a.pop()
+        console.log(a)
+        console.log(a.length)
+        a.unshift(5,6)
+        console.log(a)
+        a.shift()
+        console.log(a)
+        function f(a,b){
+            return (a-b)
+        }
+        function f1(a,b){
+            return -(a-b)
+        }
+        var c = [3,1,9,4,5,2,6,8,6]
+        console.log(c.sort(f))
+        console.log(c.sort(f1))
+        var obj = {
+            showResults: function(value, index){
+                var squared = this.calcSquare(value)
+                console.log("value:"+value)
+                console.log("index:"+index)
+                console.log("squared:"+squared)
+            },
+            calcSquare:function(x){
+                return x*x
+            }
+        }
+        var numbers = [5, 6]
+        numbers.forEach(obj.showResults, obj)
+        numbers.forEach(function(value, index){
+            this.showResults(value, index)
+        }, obj)
+        function threeChars(value, index,str){
+            console.log(index)
+            return str.substring(index -1, index+2)
+        }
+        var word = "Thursday"
+        var result = [].map.call(word, threeChars)
+        console.log(result)
+        var filteredNames = Object.getOwnPropertyNames(window).filter(IsC)
+        for(i in filteredNames)
+            document.write(filteredNames[i] + '<br/>')
+        function IsC(value){
+            var firstChar = value.substr(0, 3)
+            if(firstChar.toLowerCase()=="css")
+                return true;
+            else
+                return false;
+        }
+        var checkNumberRange = function(value){
+            if(typeof value != "number"){
+                return false
+            }else{
+                return value >= this.minnum && value <= this.maxnum
+            }
+        }
+        var obj = {minnum: 10, maxnum: 20}
+        var numbers = [5, 20, 9, 10, 15, 19, 7, 36, 71]
+        var result = numbers.filter(checkNumberRange,obj)
+        console.log(result)
+    </script>
+</body>
+</html>
