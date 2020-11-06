@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //求数组中最大值
+        function max(){
+            var m = Number.NEGATIVE_INFINITY
+            for(var i = 0; i <arguments.length; i++){
+                if(arguments[i] > m){
+               
+                    m = arguments[i]
+                }
+            }
+            return m
+        }
+        var a = [23, 3, 53, 67, 22, 89, 19, 26]
+        var m = max.apply(Object, a)
+        console.log(m)
+    </script>
+</body>
+</html>
