@@ -15,6 +15,37 @@
             console.log(e(3, 6)) //无效调用 
         }
         console.log(f(4, 5))
+        function f1(){
+            for(var i = 0; i < arguments.length; i++){
+                console.log(arguments[i])
+            }            
+        }
+        f1(3, 7, 6, 9)  //逐个显示每个传递的实参
+        function f2(){
+            for(var i = 0; i < f.arguments.length; i++){
+                console.log(arguments[i])
+            }
+        }
+        f1(3, 7, 6, 9)  //逐个显示每个传递的实参
+        var r = /\x61/;
+        var s = "JavaScript";
+        console.log(s.search(r))
+        var r = /\141/;
+        var s = "JavaScript";
+        console.log(s.match(r))
+        var r = "/\u0061/";
+        var s = "JavaScript";
+        console.log(s.match(r))
+        var s = "abc4 abd6 abe3 abf1 abg8";  //字符串直接量
+        var r = /ab[c-g][1-7]/g;  //前两个字符为ab，第三个字符为从c到g，第四个字符为1~7的任意数字
+        console.log(s.match(r))  //返回数组["abc4","abd6","abe3","abf1","abg7"]
+        var s = "<html><head><title></title></head><body></body></html>";
+        var r = /(<.*>)(<.*>)/
+        var a = s.match(r);
+        //左侧表达式匹配"<html><head><title></title></head><body></body></html>"
+        console.log(a)
+        console.log(a[1])
+        console.log(a[2])  //右侧表达式匹配“</html>”
     </script>
 </body>
 </html>

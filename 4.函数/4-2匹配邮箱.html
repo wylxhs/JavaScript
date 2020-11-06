@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>邮箱匹配</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function isEmail(){
+            if(arguments.length > 1) 
+                throw new Error("只能传递一个参数！")
+            var regexp = /^\w+((-\w+)|(\.\w+))*\@[a-zA-Z0-9]+((-|(\.))[a-zA-Z0-9]+)*\.[a-zA-Z0-9]+$/
+            if(arguments[0].search(regexp) != -1){
+                return true
+            }else{
+                return false
+            }
+        }
+        var email = "234@qq.com"
+        console.log(isEmail(email))
+    </script>
+</body>
+</html>
