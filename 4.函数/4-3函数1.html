@@ -20,7 +20,48 @@
         }
         var a = [23, 3, 53, 67, 22, 89, 19, 26]
         var m = max.apply(Object, a)
-        console.log(m) 
+        console.log(m)
+        function f(){
+            console.log(f)
+        }
+        f()
+        console.log(f.toString())
+        function f1(){
+            var a = 1
+            b = function(){
+                alert(a)
+            }
+            c = function(){
+                a++
+            }
+            d = function(x){
+                a = x
+            }
+        }     
+    function f2(x2){
+        var a = []
+        for(var i = 0; i < x2.length; i++){
+            var temp = x[i]
+            a.push((function(temp, i){
+                return function(){
+                    alert(temp + ' ' + x2[i])
+                }
+            })(temp, i))
+               
+        }
+        return a
+    } 
+    function e(){
+        var a = f(["a", "b", "c"])
+        for(var i = 0; i < a.length; i++){
+            a[i]()
+        }
+    }    
+    e()
     </script>
+    <button onclick="f1()">按钮1：(f1())</button>
+    <button onclick="b()">按钮2：(b = function(){alert(a)})</button>
+    <button onclick="c()">按钮3：(c = function(){a++})</button>
+    <button onclick="d(100)">按钮4：(d = function(x){a = x})</button>    
 </body>
 </html>
