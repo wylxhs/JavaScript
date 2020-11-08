@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var o = {}
+        o.f = function(){
+            if(this == o){
+                console.log("this=o")
+            }
+            if(this == window){
+                console.log("this=window")
+            }
+            if(this == button){
+                console.log("this=button")
+            }
+        }
+        // setTimeout(o.f, 100)
+        setTimeout(function(){
+            o.f.call(o)
+        }, 100)
+        function Base(){
+            var _this = this
+            this.m = function(){
+                return _this
+            }
+            this.name = "Base"
+        }
+        function F(){
+            this.name = "F" 
+        }
+        F.prototype = new Base()
+        var f = new F()
+        var n = f.m()
+        console.log(n.name)
+        var o = {
+            name: "this = o",
+            b: function(){
+                return o
+            }
+        }
+        var o1 = {
+            name: "this = o1",
+            b:o.b
+        }
+        var a = o1.b()
+        console.log(a.name)
+        function f(){
+            this.x = function(x){
+                return x
+            }
+        }
+        f()
+        // console.log(f.x(4))
+        console.log(window.x(4))
+    </script>
+</body>
+</html>
