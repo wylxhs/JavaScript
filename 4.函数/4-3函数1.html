@@ -83,10 +83,47 @@
         var c = f5(console.log, "Hello World")
         setTimeout(c, 2000)
         window.onload = c
+        function f6(o, m){
+            return function(e){
+                e = e || window.event
+                return o[m](e, this)
+            }
+        }
+        function l(id){
+            return function(){
+                var e = document.getElementsByTagName(id)
+                if(e){
+                    for(var i in e){
+                        e[i].onclick = f6(l,"click")
+                        e[i].onmouseover = f6(l,"over")
+                        e[i].onmouseout = f6(l,"out")
+                    }
+                }
+            }
+        }
+        l.click = function(event, element){
+            element.style.backgroundColor = "red"
+        }
+        l.over = function(event, element){
+            element.style.backgroundColor = "blue"
+        }
+        l.out = function(event, element){
+            element.style.backgroundColor = "transparent"
+        }
+        window.onload = l("p")
     </script>
     <button onclick="f1()">按钮1：(f1())</button>
     <button onclick="b()">按钮2：(b = function(){alert(a)})</button>
     <button onclick="c()">按钮3：(c = function(){a++})</button>
     <button onclick="d(100)">按钮4：(d = function(x){a = x})</button>    
+    <p>p1</p>
+    <p>p2</p>
+    <p>p3</p>
+    <p>p4</p>
+    <p>p5</p>
+    <p>p6</p>
+    <p>p7</p>
+    <p>p8</p>
+    <p>p9</p>
 </body>
 </html>
