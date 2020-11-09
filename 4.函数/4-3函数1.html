@@ -38,26 +38,51 @@
                 a = x
             }
         }     
-    function f2(x2){
-        var a = []
-        for(var i = 0; i < x2.length; i++){
-            var temp = x[i]
-            a.push((function(temp, i){
-                return function(){
-                    alert(temp + ' ' + x2[i])
-                }
-            })(temp, i))
-               
+        function f2(x2){
+            var a = []
+            for(var i = 0; i < x2.length; i++){
+                var temp = x2[i]
+                a.push((function(temp, i){
+                    return function(){
+                        console.log(temp + ' ' + x2[i])
+                    }
+                })(temp, i))
+                
+            }
+            return a
+        } 
+        function e(){
+            var a = f2(["a", "b", "c"])
+            for(var i = 0; i < a.length; i++){
+                a[i]()
+            }
+        }    
+        e()
+        function f3(x3){
+            var temp = x3        
+            console.log("x3="+x3)
+            console.log("temp1="+temp)
+            return function(x3){
+                temp+=x3
+                console.log("x33="+x3)
+                console.log("temp="+temp)
+            }
         }
-        return a
-    } 
-    function e(){
-        var a = f(["a", "b", "c"])
-        for(var i = 0; i < a.length; i++){
-            a[i]()
+        var a = f3(50)
+        var b = f3(100)
+        a(5)
+        b(10)
+        var d = setTimeout(function(){
+            console.log("hello world")
+        }, 1000)
+        function f5(h, b){
+            return function(){
+                h(b)
+            }
         }
-    }    
-    e()
+        var c = f5(console.log, "Hello World")
+        setTimeout(c, 2000)
+        window.onload = c
     </script>
     <button onclick="f1()">按钮1：(f1())</button>
     <button onclick="b()">按钮2：(b = function(){alert(a)})</button>
