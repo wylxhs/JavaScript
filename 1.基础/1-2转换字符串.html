@@ -66,7 +66,7 @@
         }
         console.log(t&&u()) 
         for(u in window){ 
-            document.write("window."+u+"="+window[u]+"<br/>")
+            document.write(window[u]+"<br/>")
         }
         if(event){
             event = event
@@ -77,7 +77,8 @@
         console.log(event)
         console.log((function(x,y){
             return (x+y)/2
-        })(6,2)) 
+        })(6,2))
+        
     </script>
 </body>
 </html>

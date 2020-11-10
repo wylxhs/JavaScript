@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="submit" id="btn">
+    <script type="text/javascript">
+        function bind(fn, context){
+            return function(){
+                return fn.apply(context, arguments)
+            }
+        }
+        var handler = {
+            message: 'Event Handled',
+            handleClick: function(event){
+                console.log(this.message)
+            }
+        }
+        var btn = document.getElementById('btn')
+        btn.addEventListener("click", bind(handler.handleClick, handler))    
+        Function.prototype.method = function(name, func){
+            if(!this.prototype[name]){
+                this.prototype[name] = func
+                return this
+            }
+        }  
+        String.method('trim', function(){
+            return this.replace(/^\s+|\s+$/g, '')
+        })       
+        String.method('writeln', function(){
+            document.writeln(this)
+            return this
+        })
+        String.method('console', function(){
+            window.console.log(this)
+            return this
+        })
+        var str = "  abc   "
+        str.trim().writeln().console()
+    </script>
+    
+</html>
