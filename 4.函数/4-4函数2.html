@@ -7,6 +7,7 @@
 </head>
 <body>
     <input type="submit" id="btn">
+    <input type="text">
     <script type="text/javascript">
         function bind(fn, context){
             return function(){
@@ -40,6 +41,57 @@
         })
         var str = "  abc   "
         str.trim().writeln().console()
+        var a = new Object()
+        var b = new Object()
+        var c = new Object()
+        a.id = 1
+        b.id = 2
+        c.id = 3
+        a.date = new Date(2020,12,12)
+        b.date = new Date(2020,1,27)
+        c.date = new Date(2020,6,30)
+        var arr = [a, b, c]
+        console.log(arr.sort(
+            function(x, y){
+                return y.date - x.date
+            }
+        ))
+        function wrap(tag){
+            var stag = '<' + tag + '>'
+            var etag = '</' + tag.replace(/s.*/, '') + '>'
+            return function(x){
+                return stag + x + etag
+            }
+        }
+        var B = wrap('B') 
+        console.log(B('粗体字'))
+        document.write(B('粗体字'))
+        document.write('<br>')
+        document.write(wrap('B')('粗体字'))
+        //求阶乘
+        var f = function(x){
+            if(x < 2){
+                return 1
+            }else{
+                return x * arguments.callee(x-1)
+            }
+        }
+        console.log(f(3))
+        function f1(n){
+            var l = 0
+            if(n.nodeType == 1){
+                l++
+            }
+            var child = n.childNodes
+            for(var i = 0; i < child.length; i++){
+                i+=f1(child[i])
+            }
+            return 1
+        }
+        window.onload = function(){
+            var body = document.getElementsByTagName("input")[0]
+            console.log(f1(body))
+        }
     </script>
-    
+</body>
 </html>
