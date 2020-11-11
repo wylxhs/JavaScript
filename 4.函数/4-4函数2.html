@@ -92,6 +92,25 @@
             var body = document.getElementsByTagName("input")[0]
             console.log(f1(body))
         }
+        // 汉诺塔问题
+        function Hanoi(n, a, b, c){
+            if(n == 1){
+                document.writeln(a + "&rarr;" + c)
+            }else{
+                Hanoi(n-1, a, c, b)
+                document.writeln(a + "&rarr;" + c)
+                Hanoi(n-1, b, a, c)
+            }
+        }
+        Hanoi(3, "A", "B", "C")
+        // 尾递归
+        function f2(n){
+            return (n == 1) ? 1 : e(n, 1)
+        }
+        function e(n, a){
+            return (n == 1) ? a : e(n - 1, n*a)
+        }
+        console.log(f2(5))
     </script>
 </body>
 </html>
