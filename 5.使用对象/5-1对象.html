@@ -77,6 +77,17 @@
         console.log(c.getl())
         console.log(c.has())
         console.log(c.str())
+        function Book(title, pages){
+            this.title = title
+            this.pages = pages
+        }
+        Book.prototype.what = function(){
+            console.log(this.title + this.pages)
+        }
+        var Book1 = new Book("JavaScript", 160)
+        var Book2 = new Book("C程序设计", 240)
+        console.log(Book1.title)
+        console.log(Book2.title)
     </script>
 </body>
 </html>
